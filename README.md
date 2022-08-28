@@ -91,13 +91,13 @@ An API to fetch latest videos sorted in reverse chronological order of their pub
   - Get all videos.
     
     ```bash
-    curl -X GET http://localhost:8080/api/v1/videos
+    curl -X GET http://localhost:8000/api/videos/list/
     ```
 
   - Get all videos in a paginated response.
     
     ```bash
-    curl -X GET http://localhost:8080/api/v1/videos?page=1&page_size=10
+    curl -X GET http://localhost:8000/api/videos/list/?page=1&page_size=10
     ```
 
   - Search videos.
