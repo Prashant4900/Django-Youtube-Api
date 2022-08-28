@@ -14,11 +14,26 @@ An API to fetch latest videos sorted in reverse chronological order of their pub
   - Optimise search api, so that it's able to search videos containing partial match for the search query in either video title or description.
     - Ex 1: A video with title *`How to make tea?`* should match for the search query `tea how`.
 
+## Prequisites
+  - ***.env.dev*** file should be present in the root directory of the project.
+  - Environment file must contain these variables
+
+        DB_HOST=db
+        DB_NAME=app
+        DB_USER=postgres
+        DB_PASSWORD=findmypasswordlol
+        REDIS_PASSWORD=findmypasswordlol
+        POSTGRES_DB=app
+        POSTGRES_USER=postgres
+        POSTGRES_PASSWORD=findmypasswordlol
+        DEBUG=True
+        YOUTUBE_API_KEY=<YOUTUBE-API-KEY>
+
 ## Installation with Docker
   - Clone the repository and build the image.
 
     ```bash
-    git clone
+    git clone https://github.com/Prashant4900/Fampay-Django-Youtube-Api
     docker-compose up -d --build
     ```
       
@@ -28,12 +43,17 @@ An API to fetch latest videos sorted in reverse chronological order of their pub
     docker-compose up
     ```
 
-## Installation without Docker
-  - Clone the repository and build the image.
+  - Create Superuser.
     
     ```bash
-    git clone
-    docker build -t youtubedb .
+    docker exec -it <Project-Name> python manage.py createsuperuser
+    ```
+
+## Installation without Docker
+  - Clone the repository
+    
+    ```bash
+    git clone https://github.com/Prashant4900/Fampay-Django-Youtube-Api
     ```
     
   - Run the container.
@@ -41,3 +61,61 @@ An API to fetch latest videos sorted in reverse chronological order of their pub
     ```bash
     docker run -p 8080:8080 youtubedb
     ```
+  - Create Virtual Environment
+    
+    ```bash
+    virtualenv env
+    ```
+
+  - Install dependencies.
+    
+    ```bash
+    pip install -r requirements.txt
+    ```
+  
+  - Run the migrations.
+    
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+  - Run the server.
+    
+    ```bash
+    python manage.py runserver
+    ```
+
+  - Create a superuser.
+    
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+# API Endpoint
+  - Get all videos.
+    
+    ```bash
+    curl -X GET http://localhost:8080/api/v1/videos
+    ```
+
+  - Get all videos in a paginated response.
+    
+    ```bash
+    curl -X GET http://localhost:8080/api/v1/videos?page=1&page_size=10
+    ```
+
+  - Search videos.
+    
+    ```bash
+    curl -X GET http://localhost:8000/api/videos/list/?title=game
+    curl -X GET http://localhost:8000/api/videos/list/?description=game
+    curl -X GET http://localhost:8000/api/videos/list/?title=game&description=game
+    ```
+
+# Screen Sorts
+
+![image](./assets/get-all.png)
+![image](./assets/get-filter.png)
+![image](./assets/homepage-1.png)
+![image](./assets/homepage-2.png)

@@ -172,3 +172,4 @@ SEARCH_API = 'https://www.googleapis.com/youtube/v3/search',
 SEARCH_QUERY = "Games",
 MAX_RESULTS = 10,
 VIDEO_BASE_URL = 'https://www.youtube.com/watch?v='
+API_KEY = os.environ.get('YOUTUBE_API_KEY')
