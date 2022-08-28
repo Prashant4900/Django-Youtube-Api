@@ -110,7 +110,7 @@ An API to fetch latest videos sorted in reverse chronological order of their pub
 
 # Screen Sorts
 
-![image](./assets/get-all.png)
+![image](https://raw.githubusercontent.com/Prashant4900/Fampay-Django-Youtube-Api/main/assets/get-all.png)
 ![image](./assets/get-filter.png)
 ![image](./assets/homepage-1.png)
 ![image](./assets/homepage-2.png)
