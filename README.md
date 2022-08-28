@@ -55,12 +55,7 @@ An API to fetch latest videos sorted in reverse chronological order of their pub
     ```bash
     git clone https://github.com/Prashant4900/Fampay-Django-Youtube-Api
     ```
-    
-  - Run the container.
-    
-    ```bash
-    docker run -p 8080:8080 youtubedb
-    ```
+   
   - Create Virtual Environment
     
     ```bash
